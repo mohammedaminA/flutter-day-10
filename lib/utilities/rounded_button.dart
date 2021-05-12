@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class RoundedButton extends StatelessWidget {
   final String text;
   final Color color;
-  final String routeName;
-  RoundedButton({@required this.text, @required this.color, @required this.routeName});
+  final Function onTap;
+  RoundedButton({@required this.text, @required this.color, @required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class RoundedButton extends StatelessWidget {
         child: MaterialButton(
           onPressed: () {
             //Go to login screen.
-            Navigator.pushNamed(context, routeName);
+            onTap();
           },
           minWidth: 200.0,
           height: 42.0,
