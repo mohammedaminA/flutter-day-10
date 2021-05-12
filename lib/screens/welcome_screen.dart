@@ -60,26 +60,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             SizedBox(
               height: 48.0,
             ),
-            RoundedButton(),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegistrationScreen.id);
-                    //Go to registration screen.
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                  ),
-                ),
-              ),
-            ),
+            RoundedButton(text: 'Login', color: Colors.lightBlueAccent, routeName: LoginScreen.id),
+            RoundedButton(color: Colors.blueAccent, text: 'Register', routeName: RegistrationScreen.id),
           ],
         ),
       ),
@@ -90,9 +72,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
 class RoundedButton extends StatelessWidget {
 final String text;
 final Color color;
-final Function onPressed;
-
-RoundedButton({@required this.text, @required this.color, @required this.onPressed});
+final String routeName;
+RoundedButton({@required this.text, @required this.color, @required this.routeName});
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +86,7 @@ RoundedButton({@required this.text, @required this.color, @required this.onPress
         child: MaterialButton(
           onPressed: () {
             //Go to login screen.
-            onPressed();
+            Navigator.pushNamed(context, routeName);
           },
           minWidth: 200.0,
           height: 42.0,
