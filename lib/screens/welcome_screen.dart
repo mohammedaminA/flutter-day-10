@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
+  static String id = 'registration_screen';
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
