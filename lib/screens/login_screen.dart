@@ -30,19 +30,23 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 48.0,
             ),
             TextField(
-              onChanged: (value) {
+                keyboardType: TextInputType.emailAddress,
+                textAlign: TextAlign.center,
+                onChanged: (value) {
                 //Do something with the user input.
               },
-              decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your Email')
+                decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your Email')
             ),
             SizedBox(
               height: 8.0,
             ),
             TextField(
-              onChanged: (value) {
+                obscureText: true,
+                textAlign: TextAlign.center,
+                onChanged: (value) {
                 //Do something with the user input.
               },
-              decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your Password')
+                decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your Password')
             ),
             SizedBox(
               height: 24.0,
