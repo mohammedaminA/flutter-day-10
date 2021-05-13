@@ -1,6 +1,8 @@
+import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/utilities/rounded_button.dart';
 import 'package:flash_chat/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static String id = 'registration_screen';
@@ -9,6 +11,7 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  final _auth = FirebaseAuth.instance;
   String email;
   String password;
   @override
@@ -53,9 +56,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 24.0,
             ),
-           RoundedButton(text: 'Register', color: Colors.blueAccent, onTap: () {
-             print(email);
-             print(password);
+           RoundedButton(text: 'Register', color: Colors.blueAccent, onTap: () async {
+              try {
+                final user = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+                if ( user != null) {
+                  Navigator.pushNamed(context, ChatScreen.id);
+                }
+              }
+              catch(e) {
+                print(e);
+              }
            })
           ],
         ),
