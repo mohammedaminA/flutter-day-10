@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "513834707345",
+    "project_id": "flash-chat-aca5b",
+    "storage_bucket": "flash-chat-aca5b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513834707345:android:b85f62d1cd56d00c5d1230",
+        "android_client_info": {
+          "package_name": "co.mohammedamina.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513834707345-qr38pvrc3gn8mel6f655b1vsq1nsikm1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfjRQ_L0UI49vCCf0nMS0EJU7sv6h7-To"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513834707345-qr38pvrc3gn8mel6f655b1vsq1nsikm1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
