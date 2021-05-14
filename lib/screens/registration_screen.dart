@@ -64,7 +64,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 }
               }
               catch(e) {
-                print(e);
+                print('error$e');
               }
            })
           ],

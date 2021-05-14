@@ -1,7 +1,6 @@
 package io.flutter.plugins;
 
 import io.flutter.plugin.common.PluginRegistry;
-import io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestorePlugin;
 import io.flutter.plugins.firebase.auth.FlutterFirebaseAuthPlugin;
 import io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin;
 
@@ -13,7 +12,6 @@ public final class GeneratedPluginRegistrant {
     if (alreadyRegisteredWith(registry)) {
       return;
     }
-    FlutterFirebaseFirestorePlugin.registerWith(registry.registrarFor("io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestorePlugin"));
     FlutterFirebaseAuthPlugin.registerWith(registry.registrarFor("io.flutter.plugins.firebase.auth.FlutterFirebaseAuthPlugin"));
     FlutterFirebaseCorePlugin.registerWith(registry.registrarFor("io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin"));
   }
