@@ -58,13 +58,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ),
            RoundedButton(text: 'Register', color: Colors.blueAccent, onTap: () async {
               try {
-                final user = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-                if ( user != null) {
+                final newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+                if ( newUser != null) {
                   Navigator.pushNamed(context, ChatScreen.id);
                 }
               }
               catch(e) {
-                print('error$e');
+                print(e);
               }
            })
           ],
