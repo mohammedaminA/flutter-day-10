@@ -67,11 +67,32 @@ class _ChatScreenState extends State<ChatScreen> {
             StreamBuilder <QuerySnapshot>(
               stream: _firestore.collection('messages').snapshots(),
               builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  final messages = snapshot.data;
+                // ignore: missing_return
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.lightBlueAccent,
+                    ),
+                  );
                 }
+                  final messages = snapshot.data.docs;
+                  List<MessageBubble> messageBubbles = [];
+                  for (var message in messages ) {
+                    final messageText = message.get('text');
+                    final messageSender = message.get('sender');
+                    final messageBubble = MessageBubble(message: messageText, sender: messageSender);
+                    // ignore: missing_return, missing_return
+                    messageBubbles.add(messageBubble);
+                  }
+                  return Expanded(
+                    child: ListView(
+                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      children: messageBubbles,
+                    ),
+                  );
+
               },
-            )
+            ),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
@@ -108,3 +129,26 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 }
+
+class MessageBubble extends StatelessWidget {
+  MessageBubble({@required this.message, @required this.sender});
+  final String message;
+  final String sender;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(10.0),
+      child: Material(
+        color: Colors.lightBlueAccent,
+        child: Text(
+            '$message from $message ',
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.white
+            ),
+        ),
+      ),
+    );
+  }
+}
+
