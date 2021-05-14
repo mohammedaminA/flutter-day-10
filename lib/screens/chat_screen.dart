@@ -125,7 +125,9 @@ class MessageStream extends StatelessWidget {
           final messageBubble = MessageBubble(
               message: messageText,
               sender: messageSender,
-              isMe: currentUser == messageSender);
+              isMe: currentUser == messageSender,
+              time: Timestamp.now()
+          );
           // ignore: missing_return, missing_return
           messageBubbles.add(messageBubble);
         }
@@ -143,10 +145,11 @@ class MessageStream extends StatelessWidget {
 }
 
 class MessageBubble extends StatelessWidget {
-  MessageBubble({@required this.message, @required this.sender, this.isMe});
+  MessageBubble({@required this.message, @required this.sender, @required this.isMe, @required this.time});
   final String message;
   final String sender;
   final bool isMe;
+  final Timestamp time;
   @override
   Widget build(BuildContext context) {
     return Padding(
