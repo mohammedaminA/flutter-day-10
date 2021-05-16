@@ -31,9 +31,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               Flexible(
                 child: Hero(
                   tag: 'logo',
-                  child: Container(
-                    height: 200.0,
-                    child: Image.asset('images/logo.png'),
+                  child: Flexible(
+                    child: Container(
+                      height: 200.0,
+                      child: Image.asset('images/logo.png'),
+                    ),
                   ),
                 ),
               ),
