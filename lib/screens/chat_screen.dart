@@ -24,7 +24,6 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getCurrentUser();
   }
@@ -82,7 +81,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     onPressed: () {
                       messageTextController.clear();
                       //messageText + loggedInUser.email
-                      _firestore.collection('messages').add({'text': messageText, 'sender': loggedInUser.email });
+                      _firestore.collection('messages').add({'text': messageText, 'sender': loggedInUser.email, 'time': Timestamp.now()});
 
 
                     },
@@ -105,7 +104,7 @@ class MessageStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder <QuerySnapshot>(
-      stream: _firestore.collection('messages').snapshots(),
+      stream: _firestore.collection('messages').orderBy('time', descending: false).snapshots(),
       builder: (context, snapshot) {
         // ignore: missing_return
         if (!snapshot.hasData) {
